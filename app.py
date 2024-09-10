@@ -8,4 +8,4 @@ def run_flask_app():
     app.run()
 
 if __name__ == "__main__":
-    run_flask_app()
+    run_flask_app(debug=True)
