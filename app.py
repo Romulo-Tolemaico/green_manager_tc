@@ -1,11 +1,11 @@
+import os
 from flask import Flask
 from src.routers import user
 
 app = Flask(__name__)
 
-def run_flask_app():
-    app.register_blueprint(user.main, url_prefix='/user')
-    app.run(debug=True)
+app.register_blueprint(user.main, url_prefix='/user')
 
 if __name__ == "__main__":
-    run_flask_app()
+    port = int(os.environ.get("PORT", 5000))  # Usa la variable de entorno PORT o el puerto 5000 por defecto
+    app.run(host='0.0.0.0', port=port)
